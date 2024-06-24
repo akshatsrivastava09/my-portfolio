@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+    
+    height: 400px;
+    width: 300px;
+    padding: 20px 30px; 
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
+    background-color: rgba(49,49,49, 0.5);
+    border: 2px solid white;
+}
+.box .form{
+    padding: 10px 20px;
+}
+.box .form h2{
+    color: white;
+    text-align: center;
+}
+.box .form form{
+    margin-top: 20px;
+    align-items: center;
+    margin-left: 18px;
+}
+.box .form form input{
+    padding: 10px 20px;
+
+}
+.inputbox{
+    margin-top: 15px;
+}
+span{
+    color: white;
+    font-size: 14px;
+}
+.sub{
+background-color: rgb(100, 167, 250);
+border-radius: 5px;
+margin-top: 50px;
+cursor: grab;
+color: white;
+font-size: 20px;
+}
+    </style>
+
+</head>
+<body>
+</section>
+<footer class="footer">
+    <div class="contact">
+        <a href="www.linkedin.com/in/akshat-srivastava-44b9772a6" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
+        <a href="www.srivastavaakshat56@gmail.com " target="_blank"><i class='bx bxl-gmail'></i></a>
+        <a href="#"><i class='bx bx-phone-call' ></i></a>
+    </div>
+</footer>
+<div class="body">
+<div class="box">
+    <div class="form">
+        <h2>Message Form</h2>
+        <form>
+            <div class="inputbox">
+                <span>Name</span><input type="text" value="" id="username" required>
+            </div>
+            <div class="inputbox">
+               <span>e-mail </span><input type="email" value="" id="email" required>
+            </div>
+            <div class="inputbox">
+               <span>Message</span> <input type="text" value="" id="msg" required>
+            </div>
+            <input type="submit" value="submit" class="sub" id="submit">
+        </form>
+    </div>
+</div>
+</div>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getDatabase,ref , set , get , child } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+   
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDMZb7y53ALmUWzEjqi8XWDby70GWzd26Q",
+      authDomain: "form-36e9e.firebaseapp.com",
+      projectId: "form-36e9e",
+      storageBucket: "form-36e9e.appspot.com",
+      messagingSenderId: "886966145736",
+      appId: "1:886966145736:web:9b06a5d48830c33aab8bfd"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  
+    const db = getDatabase(app);
+  
+    document.getElementById("submit").addEventListener('click' , function(e) {
+      set(ref(db , 'user/'+ document.getElementById("username").value),
+  
+  {
+      username : document.getElementById("username").value,
+      email : document.getElementById("email").value,
+      number : document.getElementById("msg").value,
+  
+  
+  })
+  alert("message sended !")
+    })
+  
+  
+    </script>
+</body>
+</html>
+
+</body>
+</html>
